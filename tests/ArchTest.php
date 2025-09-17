@@ -1,7 +1,7 @@
 <?php
 
-if (version_compare(PHP_VERSION, '8.4.0', '>=') || getenv('PREFER_LOWEST')) {
-    test('skipped arch test on PHP 8.4/prefer-lowest', function () {
+if (version_compare(PHP_VERSION, '8.3.0', '>=') || getenv('PREFER_LOWEST')) {
+    test('skipped arch test on PHP 8.3+/prefer-lowest', function () {
         $this->markTestSkipped('Architecture test skipped due to PHPUnit/Testbench incompatibility.');
     });
 } else {
