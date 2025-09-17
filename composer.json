@@ -1,0 +1,74 @@
+{
+    "name": "bretterer/laravel-hashid",
+    "description": "Generate and use HashIds for your Laravel models, just like native ULIDs and UUIDs",
+    "keywords": [
+        "bretterer",
+        "laravel",
+        "laravel-hashid"
+    ],
+    "homepage": "https://github.com/bretterer/laravel-hashid",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Brian Retterer",
+            "email": "brian@brianretterer.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "spatie/laravel-package-tools": "^1.16",
+        "illuminate/contracts": "^11.0||^12.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.14",
+        "nunomaduro/collision": "^8.8",
+        "larastan/larastan": "^3.0",
+        "orchestra/testbench": "^10.0.0||^9.0.0",
+        "pestphp/pest": "^4.0",
+        "pestphp/pest-plugin-arch": "^4.0",
+        "pestphp/pest-plugin-laravel": "^4.0",
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "spatie/laravel-ray": "^1.35"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bretterer\\LaravelHashId\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Bretterer\\LaravelHashId\\Tests\\": "tests/",
+            "Workbench\\App\\": "workbench/app/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@composer run prepare",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Bretterer\\LaravelHashId\\LaravelHashIdServiceProvider"
+            ],
+            "aliases": {
+                "LaravelHashId": "Bretterer\\LaravelHashId\\Facades\\LaravelHashId"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
