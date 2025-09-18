@@ -62,4 +62,5 @@ Test environment uses Orchestra Testbench for Laravel package testing. The packa
 - Namespace: `Bretterer\LaravelHashId`
 - PSR-4 autoloading from `src/`
 - Requires PHP 8.3+ and Laravel 11+
-- Uses GMP extension for cryptographic operations
+- **Requires GMP extension** for base62 encoding operations
+- Uses GMP extension for large number arithmetic in hash generation
