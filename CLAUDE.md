@@ -55,7 +55,7 @@ Uses Pest PHP with these key test files:
 - `HasHashIdsExtraTest.php` - Trait behavior with models
 - `ArchTest.php` - Architecture constraints
 
-Test environment uses Orchestra Testbench for Laravel package testing. The package supports Laravel 11+ and Laravel 12.8+ (Orchestra Testbench v10.x requires Laravel 12.8.0 minimum).
+Test environment uses Orchestra Testbench for Laravel package testing. The package supports Laravel 11+ and Laravel 12.8+ (Orchestra Testbench v10.x requires Laravel 12.8.0 minimum). GitHub Actions excludes Laravel 12 + prefer-lowest due to this incompatibility.
 
 ## Package Structure
 
