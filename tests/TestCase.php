@@ -17,14 +17,6 @@ class TestCase extends Orchestra
         );
     }
 
-    protected function resolveApplicationExceptionHandler($app)
-    {
-        $app->singleton(
-            \Illuminate\Contracts\Debug\ExceptionHandler::class,
-            \Illuminate\Foundation\Exceptions\Handler::class
-        );
-    }
-
     protected function getPackageProviders($app)
     {
         return [
