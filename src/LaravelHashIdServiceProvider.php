@@ -9,7 +9,6 @@ use Illuminate\Support\ServiceProvider;
 
 class LaravelHashIdServiceProvider extends ServiceProvider
 {
-
     public function boot(): void
     {
         Blueprint::macro('hashId', fn (string $column = 'id', int $length = 24): ColumnDefinition => $this->char($column, $length));
