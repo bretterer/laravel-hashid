@@ -2,6 +2,14 @@
 
 All notable changes to `:package_name` will be documented in this file.
 
+## Laravel Hashid v0.1.2 - 2025-09-27
+
+### Fixes
+
+- `foreignHashId` no longer requires table name
+
+**Full Changelog**: https://github.com/bretterer/laravel-hashid/compare/v0.1.1...v0.1.2
+
 ## Laravel Hashid v0.1.1 - 2025-09-27
 
 ### Removed
