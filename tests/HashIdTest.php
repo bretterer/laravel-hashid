@@ -71,7 +71,7 @@ describe('HashId model and migration', function () {
         });
         Schema::create('posts', function ($table) {
             $table->hashId('id', 16)->primary();
-            $table->foreignHashId('user_id', 'users', 'id', 16);
+            $table->foreignHashId('user_id', 16);
             $table->string('title');
         });
     });
