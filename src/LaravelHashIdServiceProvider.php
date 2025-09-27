@@ -13,7 +13,7 @@ class LaravelHashIdServiceProvider extends ServiceProvider
     {
         Blueprint::macro('hashId', fn (string $column = 'id', int $length = 24): ColumnDefinition => $this->char($column, $length));
 
-        Blueprint::macro('foreignHashId', fn (string $column, string $foreignTable, string $foreignColumn = 'id', int $length = 24): ColumnDefinition =>
+        Blueprint::macro('foreignHashId', fn (string $column, int $length = 24): ColumnDefinition =>
             /** @phpstan-ignore-next-line */
             $this->addColumnDefinition(new ForeignIdColumnDefinition($this, [
                 'type' => 'char',
