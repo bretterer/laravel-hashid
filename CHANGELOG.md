@@ -2,6 +2,15 @@
 
 All notable changes to `:package_name` will be documented in this file.
 
+## Laravel Hashid v0.1.1 - 2025-09-27
+
+### Removed
+
+- spatie/laravel-package-tools
+- spatie/laravel-ray
+
+**Full Changelog**: https://github.com/bretterer/laravel-hashid/compare/v0.1.0...v0.1.1
+
 ## Laravel Hashid v0.1.0 - 2025-09-18
 
 ### Added
