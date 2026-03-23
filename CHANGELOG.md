@@ -2,6 +2,14 @@
 
 All notable changes to `:package_name` will be documented in this file.
 
+## v0.2.0 - 2026-03-19
+
+### What's New
+
+- Add Laravel 13 support
+
+**Full Changelog**: https://github.com/bretterer/laravel-hashid/compare/v0.1.2...v0.2.0
+
 ## Laravel Hashid v0.1.2 - 2025-09-27
 
 ### Fixes
