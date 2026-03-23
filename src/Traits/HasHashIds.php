@@ -16,12 +16,17 @@ trait HasHashIds
         return '';
     }
 
+    public function hashIdLength(): int
+    {
+        return 16;
+    }
+
     /**
      * Generate a new unique key for the model.
      */
     public function newUniqueId(): string
     {
-        $hashId = (new LaravelHashId)->generate(16);
+        $hashId = (new LaravelHashId)->generate($this->hashIdLength());
 
         return empty($this->idPrefix()) ? $hashId : $this->idPrefix().'_'.$hashId;
     }
@@ -37,9 +42,10 @@ trait HasHashIds
 
         $value = collect(explode('_', $value))->last();
 
-        // Validate it's a 16-character base62 string
+        $length = $this->hashIdLength();
+
         return is_string($value)
-            && mb_strlen($value) === 16
-            && preg_match('/^[0-9A-Za-z]{16}$/', $value) === 1;
+            && mb_strlen($value) === $length
+            && preg_match('/^[0-9A-Za-z]{'.$length.'}$/', $value) === 1;
     }
 }
