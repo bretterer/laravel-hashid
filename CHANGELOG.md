@@ -2,6 +2,26 @@
 
 All notable changes to `:package_name` will be documented in this file.
 
+## v0.3.0 - 2026-03-23
+
+### What's New
+
+#### UUID/ULID Feature Parity
+
+- **Configurable HashId length** — Override `hashIdLength()` per-model instead of hardcoded 16
+- **Testing fakes** — `LaravelHashId::freeze()`, `createUsing()`, `createUsingSequence()`, `createNormally()`
+- **Polymorphic morphs** — `$table->hashIdMorphs()` and `$table->nullableHashIdMorphs()` Blueprint macros
+- **Validation rule** — `hashid` and `hashid:16` for form requests
+- **Str macros** — `Str::hashId()` and `Str::isHashId()` helpers
+- **Static validation** — `LaravelHashId::isValid()` helper
+
+#### CI Improvements
+
+- Workflows now trigger on `pull_request` instead of every push
+- Bumped `actions/checkout` to v6, `git-auto-commit-action` to v7, `ramsey/composer-install` to v4
+
+**Full Changelog**: https://github.com/bretterer/laravel-hashid/compare/v0.2.0...v0.3.0
+
 ## v0.2.0 - 2026-03-19
 
 ### What's New
