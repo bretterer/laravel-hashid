@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 describe('hashIdMorphs', function () {
@@ -49,12 +50,12 @@ describe('nullableHashIdMorphs', function () {
         });
 
         // Insert a row with null morph values — should not throw
-        \Illuminate\Support\Facades\DB::table('imageables')->insert([
+        DB::table('imageables')->insert([
             'imageable_type' => null,
             'imageable_id' => null,
         ]);
 
-        $row = \Illuminate\Support\Facades\DB::table('imageables')->first();
+        $row = DB::table('imageables')->first();
         expect($row->imageable_type)->toBeNull();
         expect($row->imageable_id)->toBeNull();
     });

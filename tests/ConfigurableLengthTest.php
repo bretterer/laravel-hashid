@@ -1,5 +1,6 @@
 <?php
 
+use Bretterer\LaravelHashId\LaravelHashId;
 use Bretterer\LaravelHashId\Traits\HasHashIds;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Schema;
@@ -57,7 +58,7 @@ describe('Configurable HashId length', function () {
             }
         };
 
-        $generator = new \Bretterer\LaravelHashId\LaravelHashId;
+        $generator = new LaravelHashId;
         $valid = $generator->generate(12);
         expect($trait->test($valid))->toBeTrue();
 

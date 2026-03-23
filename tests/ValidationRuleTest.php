@@ -1,5 +1,6 @@
 <?php
 
+use Bretterer\LaravelHashId\LaravelHashId;
 use Illuminate\Support\Facades\Validator;
 
 describe('hashid validation rule', function () {
@@ -31,7 +32,7 @@ describe('hashid validation rule', function () {
     });
 
     it('validates with specific length parameter', function () {
-        $generator = new \Bretterer\LaravelHashId\LaravelHashId;
+        $generator = new LaravelHashId;
         $hashId = $generator->generate(16);
 
         $validator = Validator::make(
@@ -43,7 +44,7 @@ describe('hashid validation rule', function () {
     });
 
     it('fails when length does not match', function () {
-        $generator = new \Bretterer\LaravelHashId\LaravelHashId;
+        $generator = new LaravelHashId;
         $hashId = $generator->generate(12);
 
         $validator = Validator::make(

@@ -1,5 +1,6 @@
 <?php
 
+use Bretterer\LaravelHashId\LaravelHashId;
 use Bretterer\LaravelHashId\Traits\HasHashIds;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Schema;
@@ -123,7 +124,7 @@ describe('HashId trait validation', function () {
                 return $this->isValidUniqueId($value);
             }
         };
-        $valid = (new \Bretterer\LaravelHashId\LaravelHashId)->generate(16);
+        $valid = (new LaravelHashId)->generate(16);
         expect($trait->test($valid))->toBeTrue();
     });
 
@@ -145,21 +146,21 @@ describe('HashId trait validation', function () {
 
 describe('HashId generator', function () {
     it('generates collision-resistant hashIds', function () {
-        $generator = new \Bretterer\LaravelHashId\LaravelHashId;
+        $generator = new LaravelHashId;
         $hashId = $generator->generate(16);
         expect($hashId)->toMatch('/^[0-9A-Za-z]{16}$/');
         expect(strlen($hashId))->toBe(16);
     });
 
     it('generates hashId from value with salt', function () {
-        $generator = new \Bretterer\LaravelHashId\LaravelHashId;
+        $generator = new LaravelHashId;
         $hashId = $generator->generateFromValue('test', 'salt', 16);
         expect($hashId)->toMatch('/^[0-9A-Za-z]{16}$/');
         expect(strlen($hashId))->toBe(16);
     });
 
     test('generates different ids on multiple calls', function () {
-        $generator = new \Bretterer\LaravelHashId\LaravelHashId;
+        $generator = new LaravelHashId;
         $id1 = $generator->generate(16);
         $id2 = $generator->generate(16);
         expect($id1)->not->toBe($id2);

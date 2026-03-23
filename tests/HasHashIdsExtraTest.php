@@ -1,10 +1,12 @@
 <?php
 
+use Bretterer\LaravelHashId\Traits\HasHashIds;
+
 describe('HasHashIds uncovered line', function () {
     it('isValidUniqueId returns false for non-string', function () {
         $trait = new class
         {
-            use \Bretterer\LaravelHashId\Traits\HasHashIds;
+            use HasHashIds;
 
             public function test($value)
             {
