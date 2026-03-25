@@ -2,6 +2,13 @@
 
 All notable changes to `:package_name` will be documented in this file.
 
+## v0.3.1 - 2026-03-25
+
+### Fixed
+
+- Changed default column length from `CHAR(24)` to `CHAR(16)` in `hashId`, `foreignHashId`, `hashIdMorphs`, and `nullableHashIdMorphs` macros to match the actual generated HashId length (#7)
+- Fixes PostgreSQL padding issue where `CHAR(24)` columns returned space-padded values for 16-character HashIds
+
 ## v0.3.0 - 2026-03-23
 
 ### What's New
