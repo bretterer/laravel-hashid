@@ -19,9 +19,9 @@ class LaravelHashIdServiceProvider extends ServiceProvider
 
     protected function registerBlueprintMacros(): void
     {
-        Blueprint::macro('hashId', fn (string $column = 'id', int $length = 24): ColumnDefinition => $this->char($column, $length));
+        Blueprint::macro('hashId', fn (string $column = 'id', int $length = 16): ColumnDefinition => $this->char($column, $length));
 
-        Blueprint::macro('foreignHashId', fn (string $column, int $length = 24): ColumnDefinition =>
+        Blueprint::macro('foreignHashId', fn (string $column, int $length = 16): ColumnDefinition =>
             /** @phpstan-ignore-next-line */
             $this->addColumnDefinition(new ForeignIdColumnDefinition($this, [
                 'type' => 'char',
@@ -32,14 +32,14 @@ class LaravelHashIdServiceProvider extends ServiceProvider
         Blueprint::macro('hashIdMorphs', function (string $name, ?string $indexName = null) {
             /** @var Blueprint $this */
             $this->string("{$name}_type");
-            $this->char("{$name}_id", 24);
+            $this->char("{$name}_id", 16);
             $this->index(["{$name}_type", "{$name}_id"], $indexName);
         });
 
         Blueprint::macro('nullableHashIdMorphs', function (string $name, ?string $indexName = null) {
             /** @var Blueprint $this */
             $this->string("{$name}_type")->nullable();
-            $this->char("{$name}_id", 24)->nullable();
+            $this->char("{$name}_id", 16)->nullable();
             $this->index(["{$name}_type", "{$name}_id"], $indexName);
         });
     }
